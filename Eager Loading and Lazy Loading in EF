@@ -1,1 +1,36 @@
+Eager Loading:
+--------------
+It is a process of loading related entites before you access them.
+Ex:
+var authorsWithBooks = dbContext.Authors
+                .Include(author => author.Books)
+                .ToList();
 
+// Here "Author" and "Books" where two entites. Author can have one or more books
+
+Lazy Load:
+---------
+Lazy loading it is a process of calling entities on demand whenever we required.
+
+where we will execute separate queries.
+
+Ex:
+//Lazy Load only Departments
+            var students = objDept.Where(d =>d.DepId == 1).FirstOrDefault();
+
+            //Load employees based on department whenever we need
+            var emp = objEmp.Where(e => e.DeptId == students.DepId).ToList();
+
+            foreach (var item in emp)
+            {
+                Console.WriteLine(item.Name);
+            }
+
+Explicit Loading:
+----------------
+When you dont have ability to lazy load entitties. If this is disabled.
+
+In that situations still we can achieve lazy load using Exaplicit loading.
+We will call load() explicitly whenever we required.
+
+var ex = dbContext.Students.ToList().Load();
