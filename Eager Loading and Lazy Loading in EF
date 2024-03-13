@@ -26,6 +26,10 @@ Ex:
                 Console.WriteLine(item.Name);
             }
 
+Common problems:
+1)Performance issue
+2)Overfetching of data
+
 Explicit Loading:
 ----------------
 When you dont have ability to lazy load entitties. If this is disabled.
